@@ -1,0 +1,1 @@
+"VsCode.exe","cmd.exe","explorer.exe","WindTerm.exe","explorer.exe", 

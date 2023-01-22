@@ -1,5 +1,18 @@
 # ide
-/.vscode/
-/.ide/
+.vscode
+.idea
+
+# bin and script
+*.exe
+*.vbs
+*.bat
+
+test
+
+# nodejs
+node_modules
+
+backup/webp/*
+
 
 
