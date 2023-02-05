@@ -57,7 +57,7 @@ var (
 		"github": "github",
 		"hub":    "git_hub",
 		"gl":     "goland",
-		"go":     "goland",
+
 		"gm":     "Grammarly",
 		"id":     "idea",
 		"i":      "idea",

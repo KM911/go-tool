@@ -2,14 +2,38 @@ package command
 
 import (
 	"github.com/urfave/cli/v2"
+	"gt/flag"
 	"lib"
 )
 
 var Build = &cli.Command{
-	Name:    "build",
-	Aliases: []string{"b"},
-	Usage:   "build go project and run with argv",
-	Action:  BuildAction,
+	Name:      "build",
+	Aliases:   []string{"b"},
+	Usage:     "build go project and run with argv",
+	UsageText: "gt build [options] [gofile] [gofile] [gofile] ... ",
+	// Description: "",
+	//Subcommands: []*cli.Command{
+	//	{
+	//		Name:      "run",
+	//		Aliases:   []string{"r"},
+	//		Usage:     "build go project and run with argv",
+	//		UsageText: "gt build run [options] [gofile] [gofile] [gofile] ... ",
+	//		// Description: "",
+	//		Action: func(c *cli.Context) error {
+	//			println("run")
+	//			// 打印所有的参数
+	//			for _, v := range c.Args().Slice() {
+	//				println("argv  +:", v)
+	//			}
+	//			return nil
+	//		},
+	//	},
+	//},
+	Action: BuildAction,
+	Flags: []cli.Flag{
+		flag.RunAfterBuild,
+		flag.RunWithArgv,
+	},
 }
 
 func BuildAction(c *cli.Context) error {

@@ -8,7 +8,7 @@ var CommandList = []*cli.Command{
 	Build,
 	Install,
 	Webp,
-	Typora,
+	WorkSpace,
 	Xcopy,
 }
 
