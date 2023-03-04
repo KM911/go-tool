@@ -1,12 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"lib"
 	"net/http"
@@ -49,23 +47,7 @@ func DownloadFile(url string) string {
 	dir := ProcessName()
 	dir = filepath.ToSlash(dir)
 	filepath := dir + "/" + savePath + "/"
-	res, err := http.Get(url)
-	if err != nil {
-		println("下载失败")
-		return url
-	}
-	defer res.Body.Close()
-	// 获得get请求响应的reader对象
-	reader := bufio.NewReaderSize(res.Body, 32*1024)
 
-	file, err := os.Create(filepath + fileName)
-	if err != nil {
-		panic(err)
-	}
-	// 获得文件的writer对象
-	writer := bufio.NewWriter(file)
-
-	io.Copy(writer, reader)
 	return filepath + fileName
 }
 
@@ -143,11 +125,6 @@ func main() {
 		imagePath := DownloadFile(v)
 		newPath := ImageToWebp(imagePath)
 		UploadImage(newPath)
-
-
-
-
-		
 		if IsLocal {
 			// 移除本地的图片
 			if path.Ext(imagePath) != ".gif" || path.Ext(imagePath) != ".webp" {
@@ -156,4 +133,3 @@ func main() {
 		}
 	}
 }
-

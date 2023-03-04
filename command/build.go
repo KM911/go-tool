@@ -36,6 +36,8 @@ var Build = &cli.Command{
 	},
 }
 
+// 为我们的action添加flag 要比就是app添加来得好得多.
+
 func BuildAction(c *cli.Context) error {
 	// 判断是否存在main.exe文件
 

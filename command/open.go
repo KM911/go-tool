@@ -15,10 +15,16 @@ var Open = &cli.Command{
 
 func Start(soft string) {
 	// 我的简写是通过 字典的键和值同时进行匹配的
-	for key, value := range config.ShortCutDict {
-		if key == soft || value == soft {
-			lib.Run("start " + config.ShortCutPath + value)
-			return
+	for key, value := range config.NewShortCutPath {
+		if key == soft {
+			lib.Run("start " + config.ShortCutPath + key)
+		} else {
+			for i := 0; i < len(value); i++ {
+				if value[i] == soft {
+					lib.Run("start " + config.ShortCutPath + key)
+					return
+				}
+			}
 		}
 	}
 	println("invalid argv")
@@ -34,7 +40,6 @@ func Gm(c *cli.Context) error {
 			// 这里开始对我们的参数列表进行遍历
 			Start(c.Args().Get(i))
 		}
-
 	}
 	return nil
 }

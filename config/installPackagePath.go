@@ -13,5 +13,7 @@ var (
 		"gorm":   "gorm.io/gorm",                   // orm框架
 		"mysql":  "gorm.io/driver/mysql",           // mysql驱动
 		"sqlite": "gorm.io/driver/sqlite",          // sqlite驱动
+		"fiber":  "github.com/gofiber/fiber/v2",    // fiber框架
+
 	}
 )
