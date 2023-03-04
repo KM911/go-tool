@@ -113,7 +113,7 @@ func ReSrotageWorkSpace() {
 	// 读取data.txt 文件  利用slice 获取我们的全部应用进程
 	// 通过gm 进行启动
 	// 利用bufio 读取文件
-	file, err := os.Open(path.Join(Dir,"bin","data.txt"))
+	file, err := os.Open(path.Join(Dir, "bin", "data.txt"))
 	if err != nil {
 		panic(err)
 	}
@@ -143,7 +143,7 @@ func main() {
 	if os.Args[1] == "restore" || os.Args[1] == "r" {
 		ReSrotageWorkSpace()
 	}
-	if os.Args[1] == "reset" || os.Args[1] == "rs" {
+	if os.Args[1] == "restart" || os.Args[1] == "re" {
 		SaveWorkSpace()
 		Run("shutdown -r -t 10")
 

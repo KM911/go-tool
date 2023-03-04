@@ -62,7 +62,7 @@ func BuildAction(c *cli.Context) error {
 
 		}
 		// 这里我是想做类似于 联合编译的功能
-		lib.Run("go build " + source)
+		lib.Run("go build -ldflags=\"-s -w\" " + source)
 
 	}
 	// 尝试在这里获取Flag的值

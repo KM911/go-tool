@@ -10,4 +10,7 @@ var CommandList = []*cli.Command{
 	WorkSpace,
 	Xcopy,
 	Snap,
+	Upload,
+	WxPush,
+	Clip,
 }
